@@ -4,4 +4,4 @@
 
 * windows + \  or system try icon to open 
 
-* double click or select task and enter to switch
+* double click or select task and press enter to switch
