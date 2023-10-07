@@ -1,3 +1,7 @@
 # appnav
 
-![image](https://github.com/gokhangencer/appnav/assets/5635828/e8c03f7c-9a29-4923-a1f6-a0c88d8d1d93)
+![image](https://github.com/gokhangencer/appnav/assets/5635828/68267e0a-b7db-42d6-b6df-c8df4a9d0c4a)
+
+* windows + \  or system try icon to open 
+
+* double click or select task and enter to switch
