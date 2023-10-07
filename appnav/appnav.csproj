@@ -7,13 +7,15 @@
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<PackageIcon>navigate-outline.ico</PackageIcon>
+	<ApplicationIcon>images\navigate-outline.ico</ApplicationIcon>
 
-	
+	<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+	<IncludeNativeLibrariesForSelfExtract >true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="images\bg02.jpg" />
-    <None Remove="images\navigate-outline.ico" />
     <None Remove="images\navigate-outline.svg" />
   </ItemGroup>
 
@@ -27,6 +29,13 @@
     <Resource Include="images\navigate-outline.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="images\navigate-outline.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
