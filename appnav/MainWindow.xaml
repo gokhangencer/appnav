@@ -1,0 +1,68 @@
+﻿<Window x:Class="appnav.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:appnav"
+        mc:Ignorable="d"
+        Title="AppNavG"         
+        Height="Auto"        
+        Width="800" 
+        Background="Transparent" AllowsTransparency="True" WindowStyle="None"
+        WindowState="Normal" ResizeMode="CanResize" ShowInTaskbar="False" 
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Height">
+    <Grid>
+        <!--Top="{Binding TopPosition, RelativeSource={RelativeSource Self}}"-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="AliceBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            CornerRadius="5,5,0,0" Margin="-1,0,-1,0" MouseLeftButtonDown="DragWindow">
+            <Grid>
+                <TextBlock  Foreground="DarkOrchid" Margin="10,0,0,0" FontWeight="Bold" 
+                            HorizontalAlignment="Left" VerticalAlignment="Center" 
+                            Text="{Binding Title, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+
+                <Button IsEnabled="True" Content="X" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="7"
+                        Width="16" Height="16" Padding="0" Click="MinimizeToTray_Click" Panel.ZIndex="100"/>
+
+                <Slider Width="100" Height="25" Margin="0,0,40,0" Orientation="Horizontal" 
+                        Value="{Binding SOpacity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center" 
+                        LargeChange="0.1" SmallChange="0.1" 
+                        TickFrequency="0.1" 
+                        IsSnapToTickEnabled="True" 
+                        Minimum="0.0" Maximum="1.0" TickPlacement="BottomRight" 
+                        AutoToolTipPlacement="None" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/appnav;component/images/bg02.jpg" Opacity="{Binding SOpacity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>                
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TreeView Name="processTree"                       
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      Background="Transparent"
+                      Margin="5"
+                      BorderThickness="0">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="FontSize" Value="18" />
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
+
+        </Grid>
+
+    </Grid>
+</Window>
